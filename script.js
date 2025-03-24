@@ -1,22 +1,25 @@
-window.addEventListener('scroll', function() {
-  // Check if the user has reached the bottom of the page
-  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight) {
-    // Load more content
-    addListItems();
-  }
-});
+document.addEventListener('DOMContentLoaded', () => {
+const list = document.getElementById('infi-list');
 
 // Function to add items to the list
 function addListItems() {
-  const list = document.getElementById('infi-list'); // Updated ID based on your HTML structure
-  for (let i = 1; i <= 2; i++) { // Add 2 new items each time
+  for (let i = 1; i <= 4; i++) {
     const newItem = document.createElement('li');
-    newItem.textContent = `Item ${list.children.length + 1}`; // Use backticks for template strings
+    newItem.textContent = `Item ${list.children.length + 1}`;
     list.appendChild(newItem);
   }
 }
 
-// Initialize the list with some items
-document.addEventListener('DOMContentLoaded', () => {
-  addListItems(); // Add initial items
+// Add scroll event to the list
+list.addEventListener('scroll', function() {
+  if (this.offsetHeight + this.scrollTop >= this.scrollHeight) {
+    addListItems();
+  }
 });
+
+// Initialize the list with some items
+document.addEventListener('DOMContentLoaded', function() {
+  addListItems();
+});
+
+	
