@@ -3,7 +3,7 @@ const list = document.getElementById('infi-list');
 
 // Function to add items to the list
 function addListItems() {
-  for (let i = 1; i <= 4; i++) {
+  for (let i = 1; i <= 2; i++) {
     const newItem = document.createElement('li');
     newItem.textContent = `Item ${list.children.length + 1}`;
     list.appendChild(newItem);
